@@ -17,10 +17,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Models\" />
-  </ItemGroup>
-
-  <ItemGroup>
     <ProjectReference Include="..\WL.Sithonia.Data\WL.Sithonia.Data.csproj" />
     <ProjectReference Include="..\WL.Sithonia.Models\WL.Sithonia.Models.csproj" />
   </ItemGroup>

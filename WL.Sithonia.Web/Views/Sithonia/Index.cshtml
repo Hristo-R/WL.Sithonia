@@ -119,8 +119,8 @@
             var txtName = $("#txtName");
             var txtCountry = $("#txtCountry");
             var customer = {};
-            customer.Name = txtName;
-            customer.Country = txtCountry;
+            customer.Name = txtName.val();
+            customer.Country = txtCountry.val();
             $.ajax({
                 type: "POST",
                 url: "/Sithonia/InsertCustomer",

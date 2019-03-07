@@ -119,24 +119,7 @@
             var txtName = $("#txtName");
             var txtCountry = $("#txtCountry");
             var customer = {};
-            //customer.Name = txtName.val();
-            //customer.Country = txtCountry.val();
-            //$.ajax({
-            //    type: "POST",
-            //    url: "/Sithonia/InsertCustomer",
-            //    data: '{customer:' + JSON.stringify(customer) + '}',
-            //    contentType: "application/json; charset=utf-8",
-            //    dataType: "json",
-            //    success: function (r) {
-            //        var row = $("#tblCustomers tr:last-child");
-            //        if ($("#tblCustomers tr:last-child span").eq(0).html() != "&nbsp;") {
-            //            row = row.clone();
-            //        }
-            //        AppendRow(row, r.CustomerId, r.Name, r.Country);
-            //        txtName.val("");
-            //        txtCountry.val("");
-            //    }
-            //});
+
             $.ajax({
                 type: "POST",
                 url: "/Sithonia/InsertCustomer",

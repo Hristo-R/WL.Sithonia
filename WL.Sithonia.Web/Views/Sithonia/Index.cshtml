@@ -119,28 +119,12 @@
             var txtName = $("#txtName");
             var txtCountry = $("#txtCountry");
             var customer = {};
-            customer.Name = txtName.val();
-            customer.Country = txtCountry.val();
-            $.ajax({
-                type: "POST",
-                url: "/Sithonia/InsertCustomer",
-                data: '{customer:' + JSON.stringify(customer) + '}',
-                contentType: "application/json; charset=utf-8",
-                dataType: "json",
-                success: function (r) {
-                    var row = $("#tblCustomers tr:last-child");
-                    if ($("#tblCustomers tr:last-child span").eq(0).html() != "&nbsp;") {
-                        row = row.clone();
-                    }
-                    AppendRow(row, r.CustomerId, r.Name, r.Country);
-                    txtName.val("");
-                    txtCountry.val("");
-                }
-            });
+            //customer.Name = txtName.val();
+            //customer.Country = txtCountry.val();
             //$.ajax({
             //    type: "POST",
             //    url: "/Sithonia/InsertCustomer",
-            //    data: '{name: "' + txtName.val() + '", country: "' + txtCountry.val() + '" }',
+            //    data: '{customer:' + JSON.stringify(customer) + '}',
             //    contentType: "application/json; charset=utf-8",
             //    dataType: "json",
             //    success: function (r) {
@@ -153,6 +137,22 @@
             //        txtCountry.val("");
             //    }
             //});
+            $.ajax({
+                type: "POST",
+                url: "/Sithonia/InsertCustomer",
+                data: '{name: "' + txtName.val() + '", country: "' + txtCountry.val() + '" }',
+                contentType: "application/json; charset=utf-8",
+                dataType: "json",
+                success: function (r) {
+                    var row = $("#tblCustomers tr:last-child");
+                    if ($("#tblCustomers tr:last-child span").eq(0).html() != "&nbsp;") {
+                        row = row.clone();
+                    }
+                    AppendRow(row, r.CustomerId, r.Name, r.Country);
+                    txtName.val("");
+                    txtCountry.val("");
+                }
+            });
         });
 
         //Edit event handler.
@@ -193,7 +193,7 @@
             customer.Country = row.find(".Country").find("span").html();
             $.ajax({
                 type: "POST",
-                url: "/Home/UpdateCustomer",
+                url: "/Sithonia/UpdateCustomer",
                 data: '{customer:' + JSON.stringify(customer) + '}',
                 contentType: "application/json; charset=utf-8",
                 dataType: "json"
@@ -225,7 +225,7 @@
                 var customerId = row.find("span").html();
                 $.ajax({
                     type: "POST",
-                    url: "/Home/DeleteCustomer",
+                    url: "/Sithonia/DeleteCustomer",
                     data: '{customerId: ' + customerId + '}',
                     contentType: "application/json; charset=utf-8",
                     dataType: "json",

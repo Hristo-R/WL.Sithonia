@@ -47,5 +47,16 @@
 
             return Json(customer);
         }
+
+        [HttpPost]
+        public ActionResult UpdateCustomer(Customer customer)
+        {
+            var updatedCustomer = this.db.Customers.FirstOrDefault(c => c.CustomerId == customer.CustomerId);
+            updatedCustomer.Name = customer.Name;
+            updatedCustomer.Country = customer.Country;
+            this.db.SaveChanges();
+
+            return new EmptyResult();
+        }
     }
 }

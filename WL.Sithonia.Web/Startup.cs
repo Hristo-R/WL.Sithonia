@@ -9,6 +9,7 @@ namespace WL.Sithonia.Web
     using Microsoft.Extensions.Configuration;
     using Microsoft.Extensions.DependencyInjection;
     using WL.Sithonia.Data;
+    using WL.Sithonia.Models;
 
     public class Startup
     {
@@ -29,19 +30,46 @@ namespace WL.Sithonia.Web
                 options.MinimumSameSitePolicy = SameSiteMode.None;
             });
 
+            services.AddIdentity<User, IdentityRole>()
+                .AddDefaultUI()
+                .AddDefaultTokenProviders()
+                .AddEntityFrameworkStores<SithoniaDbContext>();
+
+            services.Configure<IdentityOptions>(options =>
+            {
+                options.Password = new PasswordOptions()
+                {
+                    RequiredLength = 3,
+                    RequiredUniqueChars = 1,
+                    RequireDigit = false,
+                    RequireLowercase = false,
+                    RequireUppercase = false,
+                    RequireNonAlphanumeric = false
+                };
+
+                // options.SignIn.RequireConfirmedEmail = true;
+
+                // options.Lockout.MaxFailedAccessAttempts = 3;
+                // options.Lockout.DefaultLockoutTimeSpan = TimeSpan.FromMinutes(5);
+            });
+
             services.AddDbContext<SithoniaDbContext>(options =>
                 options.UseSqlServer(
                     Configuration.GetConnectionString("DefaultConnection"),
                     dbOptions => dbOptions.MigrationsAssembly("WL.Sithonia.Data")));
-            services.AddDefaultIdentity<IdentityUser>()
-                .AddEntityFrameworkStores<SithoniaDbContext>();
 
+            //services.AddDefaultIdentity<IdentityUser>()
+            //    .AddEntityFrameworkStores<SithoniaDbContext>();
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IHostingEnvironment env)
+        public void Configure(
+            IApplicationBuilder app, 
+            IHostingEnvironment env,
+            UserManager<User> userManager,
+            RoleManager<IdentityRole> roleManager)
         {
             if (env.IsDevelopment())
             {

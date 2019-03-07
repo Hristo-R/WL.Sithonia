@@ -5,9 +5,11 @@ VisualStudioVersion = 15.0.28307.271
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WL.Sithonia.Web", "WL.Sithonia.Web\WL.Sithonia.Web.csproj", "{2186D341-8928-40CE-9FED-C28C8C7C5CF1}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WL.Sithonia.Data", "WL.Sithonia.Data\WL.Sithonia.Data.csproj", "{45073D46-B418-4C89-A91C-06A32AC346E3}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WL.Sithonia.Data", "WL.Sithonia.Data\WL.Sithonia.Data.csproj", "{45073D46-B418-4C89-A91C-06A32AC346E3}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WL.Sithonia.Models", "WL.Sithonia.Models\WL.Sithonia.Models.csproj", "{EA7C0A38-2A7C-47B8-9523-64FE7603E818}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WL.Sithonia.Models", "WL.Sithonia.Models\WL.Sithonia.Models.csproj", "{EA7C0A38-2A7C-47B8-9523-64FE7603E818}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WL.Sithonia.Services", "WL.Sithonia.Services\WL.Sithonia.Services.csproj", "{43A9A339-6282-486C-94EC-18475AD8D2AD}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -27,6 +29,10 @@ Global
 		{EA7C0A38-2A7C-47B8-9523-64FE7603E818}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{EA7C0A38-2A7C-47B8-9523-64FE7603E818}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{EA7C0A38-2A7C-47B8-9523-64FE7603E818}.Release|Any CPU.Build.0 = Release|Any CPU
+		{43A9A339-6282-486C-94EC-18475AD8D2AD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{43A9A339-6282-486C-94EC-18475AD8D2AD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{43A9A339-6282-486C-94EC-18475AD8D2AD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{43A9A339-6282-486C-94EC-18475AD8D2AD}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

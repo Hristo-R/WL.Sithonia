@@ -1,7 +1,6 @@
 ﻿namespace WL.Sithonia.Web.Controllers
 {
     using Microsoft.AspNetCore.Mvc;
-    using System;
     using System.Linq;
     using WL.Sithonia.Data;
     using WL.Sithonia.Models;
@@ -35,10 +34,10 @@
         [HttpPost]
         public IActionResult Create(ProductCreateModel model)
         {
-            //if (!ModelState.IsValid)
-            //{
-            //    return this.BadRequestError("Invalidtype");
-            //}
+            if (!ModelState.IsValid)
+            {
+                return this.Redirect("/Products/Create");
+            }
 
             var product = new Product
             {

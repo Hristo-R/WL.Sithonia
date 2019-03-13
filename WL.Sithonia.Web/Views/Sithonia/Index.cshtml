@@ -177,10 +177,31 @@
             $.ajax({
                 type: "POST",
                 url: "/Sithonia/UpdateCustomer",
+                async: false,
                 data: '{customer:' + JSON.stringify(customer) + '}',
                 contentType: "application/json; charset=utf-8",
                 dataType: "json"
             });
+            //$.ajax({
+            //    url: "url",
+            //    type: "POST",
+            //    async: false,
+            //    contentType: "application/json",
+            //    //dataType: "json",
+            //    data: {
+            //        firstDate: monday,
+            //        secondDate: lastday
+            //    }
+            //    //student_name : $('#id_student_name').val()
+            //}).then(function (data) {
+
+            //    var obj = JSON.parse(data);
+            //    for (var a = 0; a < obj.results.length; a++) {
+            //        res[a] = obj.results[a];
+            //        dates.push(obj.results[a].DATESTART);
+            //    }
+            //    console.log(res);
+            //});
         });
 
         //Cancel event handler.

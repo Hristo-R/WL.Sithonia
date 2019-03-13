@@ -7,6 +7,8 @@
     using WL.Sithonia.Web.Models.BindingModels;
     using WL.Sithonia.Web.Models.ViewModels;
 
+    [Route("api/[Controller]")]
+    [ApiController]
     public class SithoniaController : Controller
     {
         private readonly SithoniaDbContext db;

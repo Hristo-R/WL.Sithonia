@@ -7,8 +7,6 @@
     using WL.Sithonia.Web.Models.BindingModels;
     using WL.Sithonia.Web.Models.ViewModels;
 
-    [Route("api/[Controller]")]
-    [ApiController]
     public class SithoniaController : Controller
     {
         private readonly SithoniaDbContext db;
@@ -59,6 +57,22 @@
             this.db.SaveChanges();
 
             return new EmptyResult();
+        }
+
+        [HttpPost]
+        public ActionResult DeleteCustomer(int customerId)
+        {
+            try
+            {
+                Customer customer = db.Customers.Where(s => s.CustomerId == customerId).First();
+                db.Customers.Remove(customer);
+                db.SaveChanges();
+                return new EmptyResult();
+            }
+            catch (System.Exception)
+            {
+                return new EmptyResult();
+            }
         }
     }
 }
